@@ -1,16 +1,19 @@
 library(tidyverse)
+options(digits = 2)
 
+#===================     This Function sums the number of NAs in a DataFrame of same length   
 
-x <- seq(1,62,2)
-x[(seq(5,30,5))] <- NA
-y <- rnorm(31)
-y[seq(2,20,2)] <- NA
-xy <- tibble(x,y)
-colSums(is.na(xy))
-
-sum_nas <- function(m,n){
-  df <- tibble(m,n)
-  number_of_nas <- colSums(is.na(df))
-  number_of_nas
+sum_na <- function(df) {
+  colSums(is.na(df))
+  
 }
 
+# ==========  Check
+
+ab <- data.frame(a = seq(1,62,2),
+                 b = rnorm(31),
+                 c = seq(35,65))
+ab$a[(seq(5,25,5))] <- NA           #   Replaces values with NA
+ab$b[seq(2,26,2)] <- NA             #   Replaces values with NA
+ab$c[1:4] <- NA                     #   Replaces values with NA
+sum_na(ab)
