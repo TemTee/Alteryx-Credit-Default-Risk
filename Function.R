@@ -1,5 +1,4 @@
 library(tidyverse)
-options(digits = 2)
 library(lubridate)
 library(dplyr)
 library(RANN)
@@ -12,21 +11,18 @@ library(readr)
 coord <-  as.data.frame(read_csv( "C:/Users/user/Documents/Udacity/AB Testing/round-roaster-stores.csv") %>% 
                           select(StoreID,Longitude, Latitude))
 head(coord)
-N_point <- nn2(coord, k=2, treetype = "bd") 
-N_point <- data.frame(nearest_point$nn.idx)  # convert to dataframe
+N_point <- nn2(coord, k=nrow(coord), treetype = "kd") 
+N_point <- data.frame(N_point$nn.idx)  # convert to dataframe 
 names(N_point) <- c("Store","1st_Nearest")     #  rename columns
+names(N_point)[3:ncol(N_point)] <- ("Next_Nearest")
 head(N_point)
-N_point_store <- data.frame(coord$StoreID[n_inx$Store],
-                            coord$StoreID[n_inx$`1st_Nearest`])    # convert index to store id
-names(N_point_store) <- c("Store", "1st_Closest")    # rename columns
+N_point_store <- data.frame(coord$StoreID[N_point$Store],
+                            coord$StoreID[N_point$`1st_Nearest`])    # convert index to store id
 head(N_point_store)
 
 
 
 # Greetin Function --------------------------------------------------------
-
-
-
 
 
 
