@@ -21,6 +21,42 @@ N_point_store <- data.frame(coord$StoreID[N_point$Store],
 head(N_point_store)
 
 
+# Function To Update Traffic Light Status ---------------------------------
+
+# You're writing code to control your town's traffic lights. 
+# You need a function to handle each change from green, to yellow, to red, 
+# and then to green again.
+
+# Complete the function that takes a string as an argument representing the
+# current state of the light and returns a string representing the state the
+# light should change to.
+
+For example, update_light('green') should return 'yellow'.
+
+test_that('Basic tests', {
+  expect_equal(update_light('green'), 'yellow')
+  expect_equal(update_light('yellow'), 'red')
+  expect_equal(update_light('red'), 'green')
+})
+
+
+traffic_color <- c("green", "yellow", "red")
+
+update_light <- for (current_state in traffic_color){
+  if (current_state == "green") {
+    update_light <-  "yellow"
+  }
+  else if (current_state == "yellow"){
+    update_light <-  "red"
+  }
+  else {
+    update_light <- "green"
+  }
+  return(update_light)
+  
+}
+  
+
 
 # Greetin Function --------------------------------------------------------
 
