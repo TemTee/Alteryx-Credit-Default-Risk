@@ -39,21 +39,27 @@ test_that('Basic tests', {
   expect_equal(update_light('red'), 'green')
 })
 
-
-traffic_color <- c("green", "yellow", "red")
-
-update_light <- for (current_state in traffic_color){
-  if (current_state == "green") {
-    update_light <-  "yellow"
-  }
-  else if (current_state == "yellow"){
-    update_light <-  "red"
-  }
-  else {
-    update_light <- "green"
-  }
-  return(update_light)
+while (command == "start"){
+    command <- readline(prompt = "Enter Command : ")
+    print("Car Started ... Ready Go !")
+    if_else(command == "stop", 
+            print("Car Stopped"), print("Quit"))
+else print("I don't understand. Enter : start, stop or quit"))
   
+}
+
+print("car started")
+
+update_light <- function (current_state){
+  traffic_color <- c("green", "yellow", "red")
+  for (current_state in traffic_color)
+  if (current_state == "green") {
+    "yellow"
+  }
+  else{
+    "red"
+  }
+update_light
 }
   
 
@@ -81,5 +87,24 @@ ab$a[(seq(5,25,5))] <- NA           #   Replaces values with NA
 ab$b[seq(2,26,2)] <- NA             #   Replaces values with NA
 ab$c[1:4] <- NA                     #   Replaces values with NA
 sum_na(ab)
+
+
+
+# Function to cal sum of n positive integers -----------------------------------
+sum_first_pos_num <- function(n){
+  x <- readline("Enter positive number to sum :")
+  n <- seq(1,as.integer(x))
+  sum(n)
+  
+}
+
+add_first_pos_num <- function(n){
+  n <- seq(1,as.integer(x))
+  sum(n)
+  
+}
+
+
+
 
 
