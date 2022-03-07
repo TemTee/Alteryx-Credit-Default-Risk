@@ -98,13 +98,36 @@ sum_first_pos_num <- function(n){
   
 }
 
+
 add_first_pos_num <- function(n){
-  n <- seq(1,as.integer(x))
+  n <- seq(1,x)
   sum(n)
   
 }
 
+# Use Case
 
+sum_first_pos_num()     ####  does not require an argument as 
+                        ####  running the function will request for its argument
+
+
+add_first_pos_num(150)  #### requires an argument to run
+
+
+# little Bunny Foo Foo# ---------------------------------------------------
+
+Little bunny Foo Foo
+Hopping through the forest
+Scooping up the field mice
+And bopping them on the head
+Down came the good fairy
+And the good fairy said
+"Little bunny Foo Foo, I don't wanna see you
+Scooping up the field mice
+And bopping them on the head"
+"I'm gonna give you 3 chances
+Then I'm gonna turn you into a goon!"
+Little bunny Foo Foo!
 
 
 
